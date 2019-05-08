@@ -1,0 +1,5 @@
+#!/bin/bash
+
+INPUT=$1
+EMPTY=""
+openssl enc -aes-256-cbc -d -in "$INPUT" -out ${INPUT/.enc/$EMPTY} -pass "pass:$2"

@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+echo "Encryption key: "
+read KEY
+
+/home/carl/.bin/decrypt /home/carl/.aws/credentials.enc $KEY
+/home/carl/.bin/decrypt /home/carl/.ssh/id_rsa.enc $KEY
+/home/carl/.bin/decrypt /home/carl/.config/rclone/rclone.conf.enc $KEY
+
+chmod 600 /home/carl/.ssh/id_rsa
+
+echo "Successfully unsealed"
