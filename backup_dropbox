@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rclone copy dropbox:/ b2://carl-files/dropbox --progress
