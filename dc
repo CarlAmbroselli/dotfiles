@@ -1,0 +1,3 @@
+#!/bin/sh
+IMAGE=${1:-ubuntu}
+docker run -v "~:/files" -i -t $IMAGE /bin/bash

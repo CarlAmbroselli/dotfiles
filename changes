@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -z "$2" ] ; then
+  echo "Usage: $0 directory command"
+  exit
+fi
+
+fswatch -o $1 | xargs -n1 $2

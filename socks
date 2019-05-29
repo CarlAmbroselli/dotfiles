@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 user@example.com"
+  exit
+fi
+
+ssh -D 8080 -C -q -N $1

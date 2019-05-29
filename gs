@@ -1,3 +1,2 @@
-#!/bin/bash
-
-git status
+#!/bin/sh
+git status -sb

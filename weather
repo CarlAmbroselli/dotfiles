@@ -1,0 +1,3 @@
+#!/bin/sh
+CITY=${1:-potsdam}
+curl wttr.in/$CITY

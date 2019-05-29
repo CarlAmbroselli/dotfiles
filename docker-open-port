@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 container port";
+    exit;
+fi
+
+NAME=$1
+docker commit "$NAME" "$NAME/openport" > /dev/null;
+RUN=$(rekcod "$NAME" | sed "s/run/run -p $2:$2/" | sed "s/-i [a-zA-Z0-9\/-_]*/-i $NAME\/openport/")
+docker stop "$NAME"
+docker rm "$NAME"
+echo -e "run: \n$RUN"
