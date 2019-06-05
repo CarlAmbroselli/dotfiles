@@ -1,0 +1,5 @@
+#!/bin/bash
+
+IP=`~/.bin/ip | grep -v '^172.'`
+echo "Open https://$IP:8443 once the password appears below:"
+docker run -it -p 8443:8443 -v "${PWD}:/home/coder/project" codercom/code-server | grep Password
