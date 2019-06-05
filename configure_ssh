@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cat > ~/.ssh/config << 'EOF'
+Host *
+  ServerAliveInterval 120
+
+Host ambroselliib
+  HostName 95468.webhosting36.1blu.de
+  User ftp95468-2612626
+  IdentityFile ~/.ssh/id_rsa
+  IdentitiesOnly yes
+
+EOF
