@@ -1,0 +1,21 @@
+#!/bin/bash
+
+CONFIG=/home/carl/.config/cloudflare.conf
+if [ ! -f "$CONFIG" ]; then
+    echo "No config found at $CONFIG. Did you unseal?"
+    exit 1
+fi
+
+source $CONFIG
+IP=$(ipv4 | grep -v '^172.')
+
+# GET ALL DNS RECORD IDS
+# curl "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
+#      -H "X-Auth-Email: $EMAIL" \
+#      -H "X-Auth-Key: $AUTH_KEY" \
+
+curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$DNS_RECORD_ID" \
+     -H "X-Auth-Email: $EMAIL" \
+     -H "X-Auth-Key: $AUTH_KEY" \
+     -H "Content-Type: application/json" \
+     --data "{\"type\":\"A\",\"name\":\"dev.pinivo.com\",\"content\":\"$IP\",\"ttl\":1,\"proxied\":false}"
