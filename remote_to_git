@@ -1,0 +1,8 @@
+#!/bin/bash
+
+REMOTE=$(git remote -v | tr -s ' ' | head -n 1)
+ORIGIN=$(echo $REMOTE | cut -d ' ' -f 1)
+URL=$(echo $REMOTE | cut -d ' ' -f 2 | sed -e 's/^http[s]:\/\//git@/' | sed -e '0,/\//{s/\//:/}')
+
+git remote rm $ORIGIN
+git remote add $ORIGIN $URL
