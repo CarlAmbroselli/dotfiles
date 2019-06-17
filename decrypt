@@ -1,5 +1,13 @@
 #!/bin/bash
 
-INPUT=$1
-EMPTY=""
-openssl enc -aes-256-cbc -d -in "$INPUT" -out ${INPUT/.enc/$EMPTY} -pass "pass:$2"
+KEYFILE=../.encryption_key
+KEYFILE=$(dirname "$0")/$KEYFILE
+if [ ! -f "$KEYFILE" ]; then
+    echo "$KEYFILE does not exist"
+    exit 1
+fi
+
+PASSWORD=$(cat "$KEYFILE")
+INPUT_FILE=$1
+
+openssl aes-256-cbc -md sha256 -d -a -in ${INPUT_FILE} -out ${INPUT_FILE%%.enc.txt} -pass pass:${PASSWORD}

@@ -1,3 +1,13 @@
 #!/bin/bash
 
-openssl enc -aes-256-cbc -salt -in "$1" -out "$1".enc -pass "pass:$2"
+KEYFILE=../.encryption_key
+KEYFILE=$(dirname "$0")/$KEYFILE
+if [ ! -f "$KEYFILE" ]; then
+    echo "$KEYFILE does not exist"
+    exit 1
+fi
+
+PASSWORD=$(cat "$KEYFILE")
+INPUT_FILE=$1
+
+openssl aes-256-cbc -md sha256 -salt -a -in ${INPUT_FILE} -out ${INPUT_FILE}.enc.txt -pass pass:${PASSWORD}
