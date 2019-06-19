@@ -1,13 +1,20 @@
 #!/bin/bash
 set -e
 
-echo "Encryption key: "
-read KEY
+read -s -p "Encryption key: " KEY
 
-/home/carl/.bin/decrypt /home/carl/.aws/credentials.enc $KEY
-/home/carl/.bin/decrypt /home/carl/.ssh/id_rsa.enc $KEY
-/home/carl/.bin/decrypt /home/carl/.config/rclone/rclone.conf.enc $KEY
+decrypt_file() {
+  INPUT=$1
+  EMPTY=""
+  openssl enc -aes-256-cbc -d -in "$INPUT" -out ${INPUT/.enc/$EMPTY} -pass "pass:$2"
+}
+
+
+decrypt_file /home/carl/.aws/credentials.enc $KEY
+decrypt_file /home/carl/.ssh/id_rsa.enc $KEY
+decrypt_file /home/carl/.config/rclone/rclone.conf.enc $KEY
 
 chmod 600 /home/carl/.ssh/id_rsa
 
 echo "Successfully unsealed"
+
