@@ -7,7 +7,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=$HOME/.bin:$PATH:/usr/local/bin/
 export PS1="\W → "
 
-[ -d /Library/Java/JavaVirtualMachines ] && export JAVA_HOME=$("/usr/libexec/java_home" -v "1.8" 2>/dev/null)
+[ -d /Library/Java/JavaVirtualMachines ] && export JAVA_HOME=$("/usr/libexec/java_home" -v "1.8")
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
