@@ -1,4 +1,5 @@
 #!/bin/bash
 
 # Attaches a screen to the docker image for debugging issues like docker not starting up
+# Sometimes you just need to send a single enter
 screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
