@@ -7,6 +7,10 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=$HOME/.bin:$PATH:/usr/local/bin/
 export PS1="\W → "
 
+# Enable colors for ls and others
+export CLICOLOR=1
+export LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35'
+
 [ "$(ls -A /Library/Java/JavaVirtualMachines)" ] && export JAVA_HOME=$("/usr/libexec/java_home" -v "1.8")
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
