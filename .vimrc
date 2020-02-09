@@ -10,6 +10,7 @@ set undodir=~/.vim/undodir
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
+set vb t_vb=
 
 " Encoding
 set encoding=utf-8
@@ -33,9 +34,9 @@ set showmatch
 map <leader><space> :let @/=''<cr> " clear search
 
 " Tabs
-nmap <C-n> :tabedit .<CR>
-nmap <C-[> :tabp<CR>
-nmap <C-]> :tabn<CR>
+map <Leader>t :tabnew<CR>
+map <Leader>[ :tabprevious<CR>
+map <Leader>] :tabnext<CR>
 
 " No banner for file listing
 let g:netrw_banner = 0
