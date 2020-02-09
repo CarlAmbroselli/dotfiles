@@ -32,3 +32,11 @@ set smartcase
 set showmatch
 map <leader><space> :let @/=''<cr> " clear search
 
+" Tabs
+nmap <C-n> :tabedit .<CR>
+nmap <C-[> :tabp<CR>
+nmap <C-]> :tabn<CR>
+
+" No banner for file listing
+let g:netrw_banner = 0
+
