@@ -20,6 +20,7 @@ set ttyfast
 " Last line
 set showmode
 set showcmd
+set ruler " display cursor position in last line
 
 " Searching
 nnoremap / /\v
