@@ -7,13 +7,6 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=$HOME/.bin:$PATH:/usr/local/bin/
 export PS1="\W → "
 
-NOTES_DIR=/Users/carlambroselli/Git/carlambroselli/notes
-if [ -d "$NOTES_DIR" ]; then
-  function notes {
-     cd /Users/carlambroselli/Git/carlambroselli/notes
-  }
-fi
-
 # Enable colors for ls and others
 export CLICOLOR=1
 
