@@ -7,13 +7,24 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=$HOME/.bin:$PATH:/usr/local/bin/
 export PS1="\W → "
 
+NOTES_DIR=/Users/carlambroselli/Git/carlambroselli/notes
+if [ -d "$NOTES_DIR" ]; then
+  function notes {
+     cd /Users/carlambroselli/Git/carlambroselli/notes
+  }
+fi
+
 # Enable colors for ls and others
 export CLICOLOR=1
 
 [ "$(ls -A /Library/Java/JavaVirtualMachines)" ] && export JAVA_HOME=$("/usr/libexec/java_home" -v "1.8")
 export NVM_DIR="$HOME/.nvm"
+# non-homebrew nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# homebrew nvm
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # tabtab source for packages
 # uninstall by removing these lines
