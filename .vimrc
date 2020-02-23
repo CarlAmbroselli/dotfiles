@@ -38,6 +38,9 @@ map <Leader>t :tabnew<CR>
 map <Leader>[ :tabprevious<CR>
 map <Leader>] :tabnext<CR>
 
+" Markdown
+map <Leader>md :set syntax=markdown<CR>
+
 " No banner for file listing
 let g:netrw_banner = 0
 

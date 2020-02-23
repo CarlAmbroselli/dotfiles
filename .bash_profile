@@ -39,3 +39,16 @@ export NVM_DIR="$HOME/.nvm"
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
 
+# has to be here because it needs to cd the parent shell
+function notes {
+  NOTES_LOCATOR=$HOME/.notes-dir
+  if ! test -f "$NOTES_LOCATOR"; then
+    echo "Please create file at $NOTES_LOCATOR with folder of notes first"
+    exit 1
+  fi
+  
+  NOTES_DIR=$(cat $NOTES_LOCATOR)
+  cd $NOTES_DIR;
+}
+
+
